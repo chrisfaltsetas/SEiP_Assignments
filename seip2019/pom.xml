@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>gr.aueb.dmst</groupId>
+    <artifactId>seip2019</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Parent - Maven-test project </name>
+    <description>This is a project that demonstrates how to use parent-children structure in Maven</description>
+
+    <!-- Dependencies declared in the parent POM are shared with the modules -->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Refers to the modules/children Maven projects -->
+    <modules>
+        <module>gradehistogram</module>
+    </modules>
+
+</project>
