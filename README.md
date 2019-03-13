@@ -62,7 +62,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Versioning
 
-We use git for versioning. For the versions available, see the [coomits on this repository](https://github.com/chrisfaltsetas/MavenAssignment/commits). 
+We use git for versioning. For the versions available, see the [commits on this repository](https://github.com/chrisfaltsetas/MavenAssignment/commits). 
 
 ## Authors
 
