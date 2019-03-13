@@ -7,12 +7,67 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+import java.io.*;
+import java.util.ArrayList;
+
 /***
  *
- * @author agkortzis The purpose of this class is to demonstrate a simple
- *         scenario of a JFreeChart XYLine chart.
+ * @author chrisfaltsetas The purpose of this class is to generate a simple
+ *         histogram of values using a JFreeChart XYLine chart.
  */
 public class HistogramGenerator {
+	public static void main(String[] args) {
+		try {
+			// Open and read file given from execution arguments
+			File file = new File("./classes/" + args[0]);
+			String encoding = "UTF8";
+			BufferedReader reader = new BufferedReader(
+					new InputStreamReader(new FileInputStream(file), encoding));
+			
+			// Create an ArrayList with the given values from the file
+			ArrayList<Integer> grades = new ArrayList<Integer>();
+			String value = reader.readLine();
+			while (value != null) {
+				grades.add(Integer.parseInt(value));
+				value = reader.readLine();
+			}
+			
+			// Call method to generate histogram with given values
+			HistogramGenerator histoGen = new HistogramGenerator();
+			int[] gradeFrequencies = histoGen.getFrequencies(grades);
+			histoGen.generateChart(gradeFrequencies);
+			
+			// Close resources
+			reader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("The file \"" + args[0] + "\" was not found.");
+			e.getMessage();
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("The encoding provided is not supported.");
+			e.getMessage();
+		} catch (Exception e) {
+			System.out.println("There was a problem reading the file.");
+			System.out.println("Please make sure the data is in the right format and try again.");
+			e.getMessage();
+		}
+	}
+	
+	/***
+	 * Receives an ArrayList with Integers. A new single dimention integer array
+	 * is created that in each position [i] contains the frequency of the grade
+	 * found in the ArrayList and returns it.
+	 * The ArrayList contains grades from 0 to 10.
+	 *
+	 * @param values ArrayList<Integer>
+	 * @return frequencies Single dimension integer array
+	 */
+	public int[] getFrequencies(ArrayList<Integer> values) {
+		int[] frequencies = new int[11];
+		for (int i=0; i < values.size(); i++) {
+			frequencies[values.get(i)]++;
+		}
+		return frequencies;
+	}
 	
 	/***
 	 * Receives a single dimension Integer array. From this array the dataset
@@ -32,7 +87,7 @@ public class HistogramGenerator {
 		 * The XYSeries that are loaded in the dataset. There might be many
 		 * series in one dataset.
 		 */
-		XYSeries data = new XYSeries("random values");
+		XYSeries data = new XYSeries("grades");
 		
 		/*
 		 * Populating the XYSeries data object from the input Integer array
@@ -50,24 +105,17 @@ public class HistogramGenerator {
 		boolean urls = false; // do not visualize urls
 		
 		// Declare and initialize a createXYLineChart JFreeChart
-		JFreeChart chart = ChartFactory.createXYLineChart("Chart title", "x_axis title", "y_axis_title", dataset,
+		JFreeChart chart = ChartFactory.createXYLineChart("Frequency of grades", "Grades", "Frequency", dataset,
 				PlotOrientation.VERTICAL, legend, tooltips, urls);
 		
 		/*
 		 * Initialize a frame for visualizing the chart and attach the
 		 * previously created chart.
 		 */
-		ChartFrame frame = new ChartFrame("First", chart);
+		ChartFrame frame = new ChartFrame("Grade Frequency histogram", chart);
 		frame.pack();
 		// makes the previously created frame visible
 		frame.setVisible(true);
 	}
 	
-	public static void main(String[] args) {
-		// the input values
-		int[] dataValues = { 1, 10, 6, 7, 3, 2, 0, 2, 1, 5 };
-		
-		HistogramGenerator demo = new HistogramGenerator();
-		demo.generateChart(dataValues);
-	}
 }
