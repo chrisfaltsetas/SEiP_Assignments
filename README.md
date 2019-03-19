@@ -4,57 +4,52 @@ This is a project for a university assignment to help students learn about Maven
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+In order to build the project you will have to install [JDK version 1.8.0_201](https://www.oracle.com/technetwork/java/javase/downloads/index.html) or later.
 
-```
-Give examples
-```
+You will also have to download and install [Apache Maven 3.6.0](https://maven.apache.org/download.cgi) to your system.
+Here is a quick guide on how to install Maven: https://maven.apache.org/install.html
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+To build the project, open a command line and navigate to the folder seip2019 where the pom is located.
 
 ```
-Give the example
+your\file\path\seip2019>
 ```
 
-And repeat
+And execute the following command:
 
 ```
-until finished
+mvn package
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+After the execution is completed, you will find a new directory called ```target``` with two jar files,
+located in ```seip2019\gradehistogram\```.
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+To run the program place your .txt file in the ```target``` directory and execute the command:
 
 ```
-Give an example
+your\file\path\seip2019\gradehistogram\target>java -jar gradehistogram-1.0-SNAPSHOT-jar-with-dependencies.jar <your_file_name.txt>
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
+Note: In order to successfully read the grades, your file must have a specific format.
+Each grade has to be in a new line, for example:
 
 ```
-Give an example
+5
+1
+6
+9
+10
+4
+7
+4
+4
 ```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
@@ -67,6 +62,7 @@ We use git for versioning. For the versions available, see the [commits on this 
 ## Authors
 
 **Christos-Michail Faltsetas** - [chrisfaltsetas](https://github.com/chrisfaltsetas)
+**Antonis Gkortzis** - [AntonisGkortzis](https://github.com/AntonisGkortzis)
 
 See also the list of [contributors](https://github.com/chrisfaltsetas/MavenAssignment/contributors) who participated in this project.
 
