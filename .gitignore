@@ -13,3 +13,7 @@ buildNumber.properties
 #IntelliJ IDEA specific files
 **/.idea
 *.iml
+
+#Eclipse specific files
+**/.metadata
+**/.recommenders

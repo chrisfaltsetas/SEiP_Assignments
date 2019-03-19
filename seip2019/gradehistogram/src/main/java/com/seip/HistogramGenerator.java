@@ -12,30 +12,29 @@ import java.util.ArrayList;
 
 /***
  *
- * @author chrisfaltsetas The purpose of this class is to generate a simple
+ * @author chrisfaltsetas, antonisgkortzis The purpose of this class is to generate a simple
  *         histogram of values using a JFreeChart XYLine chart.
  */
 public class HistogramGenerator {
 	public static void main(String[] args) {
 		try {
 			// Open and read file given from execution arguments
-			File file = new File("./classes/" + args[0]);
+			File file = new File(args[0]);
 			String encoding = "UTF8";
 			BufferedReader reader = new BufferedReader(
 					new InputStreamReader(new FileInputStream(file), encoding));
 			
 			// Create an ArrayList with the given values from the file
-			ArrayList<Integer> grades = new ArrayList<Integer>();
+			int[] grades = new int[11];
 			String value = reader.readLine();
 			while (value != null) {
-				grades.add(Integer.parseInt(value));
+				grades[Integer.parseInt(value)]++;
 				value = reader.readLine();
 			}
 			
 			// Call method to generate histogram with given values
 			HistogramGenerator histoGen = new HistogramGenerator();
-			int[] gradeFrequencies = histoGen.getFrequencies(grades);
-			histoGen.generateChart(gradeFrequencies);
+			histoGen.generateChart(grades);
 			
 			// Close resources
 			reader.close();
@@ -53,24 +52,8 @@ public class HistogramGenerator {
 	}
 	
 	/***
-	 * Receives an ArrayList with Integers. A new single dimention integer array
-	 * is created that in each position [i] contains the frequency of the grade
-	 * found in the ArrayList and returns it.
-	 * The ArrayList contains grades from 0 to 10.
 	 *
-	 * @param values ArrayList<Integer>
-	 * @return frequencies Single dimension integer array
-	 */
-	public int[] getFrequencies(ArrayList<Integer> values) {
-		int[] frequencies = new int[11];
-		for (int i=0; i < values.size(); i++) {
-			frequencies[values.get(i)]++;
-		}
-		return frequencies;
-	}
-	
-	/***
-	 * Receives a single dimension Integer array. From this array the dataset
+	 * @author  Receives a single dimension Integer array. From this array the dataset
 	 * that will be used for the visualization is generated. Finally, The chart
 	 * is generated with the use of the aforementioned dataset and then
 	 * presented in the screen.
