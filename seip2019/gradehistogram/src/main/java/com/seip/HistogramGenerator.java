@@ -8,7 +8,6 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 import java.io.*;
-import java.util.ArrayList;
 
 /***
  *
