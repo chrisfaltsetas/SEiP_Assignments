@@ -53,7 +53,7 @@ public class HistogramGenerator {
 	
 	/***
 	 *
-	 * @author  Receives a single dimension Integer array. From this array the dataset
+	 * @author antonisgkortzis Receives a single dimension Integer array. From this array the dataset
 	 * that will be used for the visualization is generated. Finally, The chart
 	 * is generated with the use of the aforementioned dataset and then
 	 * presented in the screen.
