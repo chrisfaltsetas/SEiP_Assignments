@@ -9,36 +9,65 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import java.io.*;
 
+import javafx.application.Application;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
 /***
  *
  * @author chrisfaltsetas, antonisgkortzis The purpose of this class is to generate a simple
  *         histogram of values using a JFreeChart XYLine chart.
  */
-public class HistogramGenerator {
-	public static void main(String[] args) {
+public class HistogramGenerator extends Application {
+	
+	private Stage primaryStage;
+	private int[] grades = new int[11];
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("Open file");
+		File file = openFile();
+		createFrequenciesArray(file);
+		generateChart(grades);
+	}
+	
+	/***
+	 *
+	 * Opens a window for the user to select a file from his computer and returns that file.
+	 *
+	 * @return a File object
+	 */
+	public File openFile() {
+		FileChooser fileChooser = new FileChooser();
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Text files (*.txt)", "*.txt");
+		fileChooser.getExtensionFilters().add(extFilter);
+		File file = fileChooser.showOpenDialog(primaryStage);
+		return file;
+	}
+	
+	/***
+	 *
+	 * Receives a File and reads it with a BufferedReader and creates an array with the frequencies of the file read.
+	 *
+	 * @param file a File object
+	 */
+	public void createFrequenciesArray(File file) {
 		try {
-			// Open and read file given from execution arguments
-			File file = new File(args[0]);
 			String encoding = "UTF8";
 			BufferedReader reader = new BufferedReader(
 					new InputStreamReader(new FileInputStream(file), encoding));
 			
-			// Create an ArrayList with the given values from the file
-			int[] grades = new int[11];
+			// Create an array with the frequencies of the given values from the file
 			String value = reader.readLine();
 			while (value != null) {
 				grades[Integer.parseInt(value)]++;
 				value = reader.readLine();
 			}
-			
-			// Call method to generate histogram with given values
-			HistogramGenerator histoGen = new HistogramGenerator();
-			histoGen.generateChart(grades);
-			
 			// Close resources
 			reader.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("The file \"" + args[0] + "\" was not found.");
+			System.out.println("The file \"" + file.getName() + "\" was not found.");
 			e.getMessage();
 		} catch (UnsupportedEncodingException e) {
 			System.out.println("The encoding provided is not supported.");
@@ -100,4 +129,7 @@ public class HistogramGenerator {
 		frame.setVisible(true);
 	}
 	
+	public static void main(String[] args) {
+		launch(args);
+	}
 }
