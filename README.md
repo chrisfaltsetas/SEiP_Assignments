@@ -10,6 +10,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 In order to build the project you will have to install [JDK version 1.8.0_201](https://www.oracle.com/technetwork/java/javase/downloads/index.html) or later.
 
+Go to the installation folder (usually ```C:\user\Program Files\Java\jdk1.8.0_201```) and extract the zip file ```javafx-src.zip```.
+
 You will also have to download and install [Apache Maven 3.6.0](https://maven.apache.org/download.cgi) to your system.
 Here is a quick guide on how to install Maven: https://maven.apache.org/install.html
 
