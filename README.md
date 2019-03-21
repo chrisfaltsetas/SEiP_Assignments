@@ -1,4 +1,4 @@
-# SEip_Assignments
+# SEiP_Assignments
 
 This is a project containing university assignments to help students learn about useful tools for coding.
 
