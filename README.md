@@ -1,6 +1,6 @@
-# MavenAssignment
+# SEip_Assignments
 
-This is a project for a university assignment to help students learn about Maven and its features.
+This is a project containing university assignments to help students learn about useful tools for coding.
 
 ## Getting Started
 
