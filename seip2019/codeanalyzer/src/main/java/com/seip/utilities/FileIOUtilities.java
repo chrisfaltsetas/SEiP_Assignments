@@ -26,8 +26,6 @@ public final class FileIOUtilities {
     }
     
     /**
-     * @author chrisfaltsetas
-     * 
      * The method receives the path of the file to be read and with the help 
      * of a BufferedReader, it adds every line of the file in a List, as a String,
      * and returns that List.
@@ -64,8 +62,6 @@ public final class FileIOUtilities {
     }
     
     /**
-     * @author chrisfaltsetas
-     * 
      * The method receives a List of String that contain the lines to be written
      * in the file that is also received as a file path and with the help of
      * a BufferedWriter, it writes every item of the List in a new line.
