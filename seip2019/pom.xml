@@ -24,6 +24,7 @@
     <!-- Refers to the modules/children Maven projects -->
     <modules>
         <module>gradehistogram</module>
+        <module>codeanalyzer</module>
     </modules>
 
 </project>

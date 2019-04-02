@@ -11,7 +11,7 @@
 
     <artifactId>gradehistogram</artifactId>
     <name>Grade Histogram</name>
-    <description>This is an example of a Maven module</description>
+    <description>Generates a histogram representing the frequency of the grades.</description>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
@@ -47,11 +47,12 @@
                 </executions>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <fork>true</fork>
-                    <executable>C:\Program Files\Java\jdk1.8.0_201\bin\javac.exe</executable>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
