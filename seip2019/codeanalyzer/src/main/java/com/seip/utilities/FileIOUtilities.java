@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @author chrisfaltsetas
  * 
- * This class is a Utility class about File input and output operations.
+ * Utility class that implements File input and output operations.
  * The methods implemented are the one that reads a given file and the
  * one that writes in a given file.
  */
@@ -26,7 +26,7 @@ public final class FileIOUtilities {
     }
     
     /**
-     * The method receives the path of the file to be read and with the help 
+     * Receives the path of the file to be read and with the help 
      * of a BufferedReader, it adds every line of the file in a List, as a String,
      * and returns that List.
      * @param filepath String containing the path of the file
@@ -62,7 +62,7 @@ public final class FileIOUtilities {
     }
     
     /**
-     * The method receives a List of String that contain the lines to be written
+     * Receives a List of String that contain the lines to be written
      * in the file that is also received as a file path and with the help of
      * a BufferedWriter, it writes every item of the List in a new line.
      * @param filepath String containing the path of the file
