@@ -68,15 +68,21 @@ public final class FileIOUtilities {
      * @param filepath String containing the path of the file
      * @param content List of Strings containing the lines to be written in the file
      */
-    public static void writeFile(String filepath, List<String> content) {
+    public static void writeFile(String filepath, List<String> contents) {
+        List<String> content = new ArrayList<String>();
+        File file = new File(filepath);
+        if (file.exists()) {
+            content.addAll(FileIOUtilities.readFile(filepath));
+        }
+        content.addAll(contents);
         if (content != null && !content.isEmpty()) {
             BufferedWriter writer = null;
-            File file = new File(filepath);
             String encoding = "UTF8";
             try {
                 writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), encoding));
                 for (String line : content) {
                     writer.write(line);
+                    writer.newLine();
                 }
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();

@@ -20,7 +20,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.seip.Client</mainClass>
+                            <mainClass>com.seip.CodeAnalyzerDemo</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

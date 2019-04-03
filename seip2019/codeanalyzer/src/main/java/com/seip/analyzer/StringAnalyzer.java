@@ -110,7 +110,6 @@ public class StringAnalyzer implements Analyzer {
             }
             inBlock = false;
         } else if (!line.contains("/*") && !line.contains("*/")) {
-            //System.out.println(line + inBlock);
             if (inBlock == true) {
                 isComment = true;
             } else {
