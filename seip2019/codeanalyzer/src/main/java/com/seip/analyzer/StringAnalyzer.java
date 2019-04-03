@@ -122,20 +122,113 @@ public class StringAnalyzer implements Analyzer {
         return status;
     }
 
+    /**
+     * Receives a list of strings and returns the number of actual Java code lines.
+     * @param contents List of Strings
+     * @return number of Java lines of code
+     */
     public int getLinesOfCode(List<String> contents) {
         contents = cleanUp(contents);
         int loc = contents.size();
         return loc;
     }
-
+    
+    /**
+     * Receives a list of strings and returns the number of Java classes contained.
+     * @param contents List of Strings
+     * @return number of Java classes
+     */
     public int getNoClasses(List<String> contents) {
         contents = cleanUp(contents);
-        return 0;
+        int noClasses = 0;
+        boolean checkNext = false;
+        for (String line : contents) {
+            if (checkNext) {
+                if (line.startsWith("{")) {
+                    noClasses++;
+                }
+            }
+            if (line.contains("class")) {
+                if (!line.contains("//") || line.indexOf("//") > line.indexOf("class")) {
+                    int index = line.indexOf("class");
+                    String nextLetter = String.valueOf(line.charAt(index + 1));
+                    while (nextLetter == " ") {
+                        index++;
+                        nextLetter = String.valueOf(line.charAt(index + 1));
+                    }
+                    if (nextLetter.equals(nextLetter.toUpperCase())) {
+                        if (line.indexOf("class") < line.indexOf("{")) { // If line does not contain the bracket, the method returns -1
+                            noClasses++;
+                        } else {
+                            checkNext = true;
+                        }
+                    }
+                }
+            }
+        }
+        return noClasses;
     }
 
+    /**
+     * Receives a list of strings and returns the number of Java methods contained.
+     * @param contents List of Strings
+     * @return number of Java methods
+     */
     public int getNoMethods(List<String> contents) {
-        // TODO Auto-generated method stub
-        return 0;
+        contents = cleanUp(contents);
+        int noMethods = 0;
+        boolean checkNext = false;
+        for (String line : contents) {
+            if (checkNext) {
+                if (line.startsWith("{")) {
+                    noMethods++;
+                }
+            }
+            if (!line.contains("//")) {
+                String[] lineParts = line.split(" ");
+                String[] specialWords = {"if", "else", "for", "while", "do", 
+                        "switch", "case", "try", "catch", "finally", "return", "package", "import"};
+                boolean maybeMethod = true;
+                for (int i = 0; i < specialWords.length; i++) {
+                    if (specialWords[i].equals(lineParts[0])) {
+                        maybeMethod = false;
+                    }
+                }
+                if (maybeMethod && line.contains(")")) {
+                    for (int i = 0; i < lineParts.length; i++) {
+                        if (lineParts[i].contains(")")) {
+                            if (line.indexOf(lineParts[i]) < line.indexOf("{")) { // If line does not contain the bracket, the method returns -1
+                                noMethods++;
+                            } else {
+                                checkNext = true;
+                            }
+                        }
+                    }
+                }
+            } else {
+                String[] lineParts = line.split(" ");
+                String[] specialWords = {"if", "else", "for", "while", "do", 
+                        "switch", "case", "try", "catch", "finally", "return", "package", "import"};
+                boolean maybeMethod = true;
+                for (int i = 0; i < specialWords.length; i++) {
+                    if (specialWords[i].equals(lineParts[0])) {
+                        maybeMethod = false;
+                    }
+                }
+                if (maybeMethod && line.contains(")") && line.indexOf("//") > line.indexOf(")")) {
+                    for (int i = 0; i < lineParts.length; i++) {
+                        if (lineParts[i].contains(")")) {
+                            if (line.indexOf(lineParts[i]) < line.indexOf("{") && line.indexOf("//") > line.indexOf("{")) { // If line does not contain the bracket, the method returns -1
+                                noMethods++;
+                            } else {
+                                checkNext = true;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+        return noMethods;
     }
-
 }
