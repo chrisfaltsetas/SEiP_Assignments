@@ -11,18 +11,17 @@ public class AnalyzerFactory {
     
     /**
      * Creates and returns an Analyzer based on the given type.
-     * The default analyzer is //TODO
-     * @param type String
-     * @return
+     * The default analyzer is with regex
+     * @param type String type of Analyzer
+     * @return Analyzer depending on the type given
      */
     public Analyzer createAnalyzer(String type) {
-        // This is a comment
         Analyzer analyzer;
         if (type.equals("string")) {
             analyzer = new StringAnalyzer();
-        } else /*if (type.equals("regex"))*/ {
-            analyzer = new RegexAnalyzer();       
+        } else {
+            analyzer = new RegexAnalyzer();
         }
-        return analyzer; // This is a comment at the end
+        return analyzer;
     }
 }
