@@ -16,12 +16,13 @@ public class AnalyzerFactory {
      * @return
      */
     public Analyzer createAnalyzer(String type) {
+        // This is a comment
         Analyzer analyzer;
         if (type.equals("string")) {
             analyzer = new StringAnalyzer();
         } else /*if (type.equals("regex"))*/ {
             analyzer = new RegexAnalyzer();       
         }
-        return analyzer;
+        return analyzer; // This is a comment at the end
     }
 }
