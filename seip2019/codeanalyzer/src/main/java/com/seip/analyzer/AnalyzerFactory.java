@@ -2,8 +2,7 @@ package com.seip.analyzer;
 
 /**
  * @author chrisfaltsetas
- * 
- * This class follows the Factory pattern as the Factory
+ * Has the role of the Factory
  * and creates Analyzers depending on the type of the analyzer.
  * StringAnalyzer for "string" type and RegexAnalyzer for "regex" type.
  */

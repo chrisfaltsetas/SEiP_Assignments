@@ -7,6 +7,7 @@ import java.util.List;
  * @author chrisfaltsetas
  * Analyzes a Java source file and calculates metrics with String analysis.
  * Follows the Strategy pattern as a ConcreteStrategy.
+ * Is a concrete object of the Product role.
  */
 public class StringAnalyzer implements Analyzer {
 
@@ -143,6 +144,7 @@ public class StringAnalyzer implements Analyzer {
         int noClasses = 0;
         boolean checkNext = false;
         for (String line : contents) {
+            line = line.trim();
             if (checkNext) {
                 if (line.startsWith("{")) {
                     noClasses++;
@@ -151,16 +153,18 @@ public class StringAnalyzer implements Analyzer {
             if (line.contains("class")) {
                 if (!line.contains("//") || line.indexOf("//") > line.indexOf("class")) {
                     int index = line.indexOf("class");
-                    String nextLetter = String.valueOf(line.charAt(index + 1));
-                    while (nextLetter == " ") {
-                        index++;
-                        nextLetter = String.valueOf(line.charAt(index + 1));
-                    }
-                    if (nextLetter.equals(nextLetter.toUpperCase())) {
-                        if (line.indexOf("class") < line.indexOf("{")) { // If line does not contain the bracket, the method returns -1
-                            noClasses++;
-                        } else {
-                            checkNext = true;
+                    String nextLetter = String.valueOf(line.charAt(index + 5));
+                    if (nextLetter.equals(" ")) {
+                        while (nextLetter == " ") {
+                            index++;
+                            nextLetter = String.valueOf(line.charAt(index + 1));
+                        }
+                        if (nextLetter.equals(nextLetter.toUpperCase())) {
+                            if (line.contains("{") && line.indexOf("class") < line.indexOf("{")) {
+                                noClasses++;
+                            } else {
+                                checkNext = true;
+                            }
                         }
                     }
                 }
@@ -179,6 +183,7 @@ public class StringAnalyzer implements Analyzer {
         int noMethods = 0;
         boolean checkNext = false;
         for (String line : contents) {
+            line = line.trim();
             if (checkNext) {
                 if (line.startsWith("{")) {
                     noMethods++;
@@ -194,10 +199,15 @@ public class StringAnalyzer implements Analyzer {
                         maybeMethod = false;
                     }
                 }
+                for (int i = 0; i < lineParts.length; i++) {
+                    if (lineParts[i].equals("if")) {
+                        maybeMethod = false;
+                    }
+                }
                 if (maybeMethod && line.contains(")")) {
                     for (int i = 0; i < lineParts.length; i++) {
                         if (lineParts[i].contains(")")) {
-                            if (line.indexOf(lineParts[i]) < line.indexOf("{")) { // If line does not contain the bracket, the method returns -1
+                            if (line.contains("{") && line.indexOf(lineParts[i]) < line.indexOf("{")) {
                                 noMethods++;
                             } else {
                                 checkNext = true;
