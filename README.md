@@ -1,6 +1,6 @@
-# MavenAssignment
+# SEiP_Assignments
 
-This is a project for a university assignment to help students learn about Maven and its features.
+This is a project containing university assignments to help students learn about useful tools for coding.
 
 ## Getting Started
 
@@ -27,29 +27,10 @@ And execute the following command:
 mvn package
 ```
 
-After the execution is completed, you will find a new directory called ```target``` with two jar files,
-located in ```seip2019\gradehistogram\```.
+### Assignments
 
-To run the program place your .txt file in the ```target``` directory and execute the command:
-
-```
-your\file\path\seip2019\gradehistogram\target>java -jar gradehistogram-1.0-SNAPSHOT-jar-with-dependencies.jar <your_file_name.txt>
-```
-
-Note: In order to successfully read the grades, your file must have a specific format.
-Each grade has to be in a new line, for example:
-
-```
-5
-1
-6
-9
-10
-4
-7
-4
-4
-```
+* [Grade Histogram](https://github.com/chrisfaltsetas/SEiP_Assignments/tree/master/seip2019/gradehistogram)
+* [Code Analyzer](https://github.com/chrisfaltsetas/SEiP_Assignments/tree/master/seip2019/codeanalyzer)
 
 ## Built With
 
@@ -57,14 +38,13 @@ Each grade has to be in a new line, for example:
 
 ## Versioning
 
-We use git for versioning. For the versions available, see the [commits on this repository](https://github.com/chrisfaltsetas/MavenAssignment/commits). 
+We use git for versioning. For the versions available, see the [commits on this repository](https://github.com/chrisfaltsetas/SEiP_Assignments/commits). 
 
 ## Authors
 
 **Christos-Michail Faltsetas** - [chrisfaltsetas](https://github.com/chrisfaltsetas)
-**Antonis Gkortzis** - [AntonisGkortzis](https://github.com/AntonisGkortzis)
 
-See also the list of [contributors](https://github.com/chrisfaltsetas/MavenAssignment/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/chrisfaltsetas/SEiP_Assignments/contributors) who participated in this project.
 
 ## License
 

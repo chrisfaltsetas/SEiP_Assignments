@@ -2,34 +2,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>seip2019</artifactId>
-        <groupId>gr.aueb.dmst</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>gr.aueb.dmst</groupId>
+		<artifactId>seip2019</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	
+	<artifactId>codeanalyzer</artifactId>
+	<name>Code Analyzer</name>
+	<description>Analyzes java source files and returns the metrics: lines of code, number of classes and number of methods.</description>
 
-    <artifactId>gradehistogram</artifactId>
-    <name>Grade Histogram</name>
-    <description>Generates a histogram representing the frequency of the grades.</description>
-
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
-        <dependency>
-            <groupId>org.jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-            <version>1.5.0</version>
-        </dependency>
-    </dependencies>
-
-    <build>
+	<build>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.seip.HistogramGenerator</mainClass>
+                            <mainClass>com.seip.CodeAnalyzerDemo</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -57,5 +48,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

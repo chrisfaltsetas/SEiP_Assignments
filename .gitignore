@@ -17,3 +17,9 @@ buildNumber.properties
 #Eclipse specific files
 **/.metadata
 **/.recommenders
+.classpath
+.project
+.settings
+
+#Windows batch files
+*.bat
