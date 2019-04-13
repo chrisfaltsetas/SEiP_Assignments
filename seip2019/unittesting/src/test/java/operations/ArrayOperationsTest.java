@@ -6,7 +6,7 @@ import filehandlers.FileIO;
  * A class that performs operations on Arrays
  * @author agkortzis
  */
-public class ArrayOperrations {
+public class ArrayOperationsTest {
 	private FileIO fileIo;
 	private IntegerOperations intOprs; 
 	
@@ -15,14 +15,14 @@ public class ArrayOperrations {
 	 * creating an a class instance without injecting
 	 * the required dependencies.
 	 */
-	private ArrayOperrations() {}
+	private ArrayOperationsTest() {}
 		
 	/***
 	 * Parameterized Constructor
 	 * @param fileIo
 	 * @param integerOperations
 	 */
-	public ArrayOperrations(FileIO fileIo, IntegerOperations integerOperations) {
+	public ArrayOperationsTest(FileIO fileIo, IntegerOperations integerOperations) {
 		this.fileIo = fileIo;
 		this.intOprs = integerOperations;
 	}
