@@ -47,7 +47,7 @@ public class IntegerOperationsTest {
      */
     @Test
     public void test_add_validValues() {
-        Assert.assertEquals(727, intOps.add(604, 124));
+        Assert.assertEquals(728, intOps.add(604, 124));
     }
     
     /**
