@@ -51,6 +51,17 @@ public class IntegerOperationsTest {
     }
     
     /**
+     * A unit test that examines the add method with valid
+     * input values and expects their sum as a result.
+     * This case examines the border case where the sum
+     * expected equals the MAX_VALUE of an integer. 
+     */
+    @Test
+    public void test_add_validValuesBorder() {
+        Assert.assertEquals(Integer.MAX_VALUE, intOps.add(604, Integer.MAX_VALUE - 604));
+    }
+    
+    /**
      * A test case for the exceptions caused when
      * one or more input values are negative
      */
