@@ -1,4 +1,4 @@
-# SEiP_Assignments
+# Unit Testing
 
 This is a project containing an assignment to get familiar with Unit Testing.
 The files contain *Test classes that test possible scenarios of executing methods of a class.
