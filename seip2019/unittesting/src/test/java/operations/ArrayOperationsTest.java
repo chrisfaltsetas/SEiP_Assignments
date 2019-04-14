@@ -40,6 +40,7 @@ public class ArrayOperationsTest {
         when(intOps.reverseSign(0)).thenReturn(0);
         when(intOps.reverseSign(13)).thenReturn(-13);
         
+        arrayOps = new ArrayOperations(io, intOps);
         Assert.assertArrayEquals(new int[] {-46,-32,11,-34,-5,55,0,-13,11}, arrayOps.reverseArray(filepath));
     }
     
@@ -55,6 +56,7 @@ public class ArrayOperationsTest {
         String filepath = "src/test/resources/empty.txt"; 
         when(io.readFile(filepath)).thenReturn(testValues);
         
+        arrayOps = new ArrayOperations(io, new IntegerOperations());
         arrayOps.reverseArray(filepath);
         // TODO is this possible? length < 1
     }
@@ -71,6 +73,7 @@ public class ArrayOperationsTest {
         String filepath = "src/test/resources/valid-numbers.txt"; 
         when(io.readFile(filepath)).thenReturn(testValues);
         
+        arrayOps = new ArrayOperations(io, new IntegerOperations());
         Assert.assertEquals(46, arrayOps.findMaxInFile(filepath));
     }
     
@@ -82,10 +85,12 @@ public class ArrayOperationsTest {
     public void test_findMaxInFile_Mocking_empty() {
         // Mock FileIO readFile method
         FileIO io = mock(FileIO.class);
-        int[] testValues = {46,32,-11,34,5,-55,0,13,-11};
-        String filepath = "src/test/resources/valid-numbers.txt"; 
+        int[] testValues = {};
+        String filepath = "src/test/resources/empty.txt"; 
         when(io.readFile(filepath)).thenReturn(testValues);
         
+        arrayOps = new ArrayOperations(io, new IntegerOperations());
         arrayOps.findMaxInFile(filepath);
+        // TODO is this possible? length < 1
     }
 }
