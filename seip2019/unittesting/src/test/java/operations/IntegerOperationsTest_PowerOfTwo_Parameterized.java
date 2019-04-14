@@ -35,7 +35,7 @@ public class IntegerOperationsTest_PowerOfTwo_Parameterized {
      */
     @Parameters
     public static Collection<Object[]> data() {
-        Object[][] data = new Object[][]{{7,128},{0,1},{3,8},{10,1024},{1,2},{4,16}};
+        Object[][] data = new Object[][]{{7,128},{0,1},{3,8},{30,1073741824},{10,1024},{1,2},{4,16}};
         return Arrays.asList(data);
     }
     
