@@ -13,7 +13,11 @@ import static org.mockito.Mockito.*;
  *
  */
 public class ArrayOperationsTest {
-    ArrayOperations arrayOps;
+    // Mock FileIO readFile method
+    FileIO io = mock(FileIO.class);
+    // Mock IntegerOperations reverseSign method
+    IntegerOperations intOps = mock(IntegerOperations.class);
+    ArrayOperations arrayOps = new ArrayOperations(io, intOps);
     
     /**
      * A unit test for reversing an array of valid integers.
@@ -23,14 +27,10 @@ public class ArrayOperationsTest {
      */
     @Test
     public void test_reverseArray_Mocking_valid() {
-        // Mock FileIO readFile method
-        FileIO io = mock(FileIO.class);
         int[] testValues = {46,32,-11,34,5,-55,0,13,-11};
         String filepath = "src/test/resources/valid-numbers.txt"; 
         when(io.readFile(filepath)).thenReturn(testValues);
         
-        // Mock IntegerOperations reverseSign method
-        IntegerOperations intOps = mock(IntegerOperations.class);
         when(intOps.reverseSign(46)).thenReturn(-46);
         when(intOps.reverseSign(32)).thenReturn(-32);
         when(intOps.reverseSign(-11)).thenReturn(11);
@@ -40,7 +40,6 @@ public class ArrayOperationsTest {
         when(intOps.reverseSign(0)).thenReturn(0);
         when(intOps.reverseSign(13)).thenReturn(-13);
         
-        arrayOps = new ArrayOperations(io, intOps);
         Assert.assertArrayEquals(new int[] {-46,-32,11,-34,-5,55,0,-13,11}, arrayOps.reverseArray(filepath));
     }
     
@@ -50,15 +49,10 @@ public class ArrayOperationsTest {
      */
     @Test (expected = IllegalArgumentException.class)
     public void test_reverseArray_Mocking_empty() {
-        // Mock FileIO readFile method
-        FileIO io = mock(FileIO.class);
-        int[] testValues = {};
-        String filepath = "src/test/resources/empty.txt"; 
-        when(io.readFile(filepath)).thenReturn(testValues);
+        String filepath = "returns/empty/array"; 
+        when(io.readFile(filepath)).thenReturn(new int[] {});
         
-        arrayOps = new ArrayOperations(io, new IntegerOperations());
         arrayOps.reverseArray(filepath);
-        // TODO is this possible? length < 1
     }
     
     /**
@@ -67,13 +61,10 @@ public class ArrayOperationsTest {
      */
     @Test
     public void test_findMaxInFile_Mocking_valid() {
-        // Mock FileIO readFile method
-        FileIO io = mock(FileIO.class);
         int[] testValues = {46,32,-11,34,5,-55,0,13,-11};
         String filepath = "src/test/resources/valid-numbers.txt"; 
         when(io.readFile(filepath)).thenReturn(testValues);
         
-        arrayOps = new ArrayOperations(io, new IntegerOperations());
         Assert.assertEquals(46, arrayOps.findMaxInFile(filepath));
     }
     
@@ -83,14 +74,10 @@ public class ArrayOperationsTest {
      */
     @Test (expected = IllegalArgumentException.class)
     public void test_findMaxInFile_Mocking_empty() {
-        // Mock FileIO readFile method
-        FileIO io = mock(FileIO.class);
         int[] testValues = {};
         String filepath = "src/test/resources/empty.txt"; 
         when(io.readFile(filepath)).thenReturn(testValues);
         
-        arrayOps = new ArrayOperations(io, new IntegerOperations());
         arrayOps.findMaxInFile(filepath);
-        // TODO is this possible? length < 1
     }
 }

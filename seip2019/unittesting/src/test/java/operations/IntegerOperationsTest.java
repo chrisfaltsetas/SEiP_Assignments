@@ -58,7 +58,7 @@ public class IntegerOperationsTest {
      */
     @Test
     public void test_add_validValuesBorder() {
-        Assert.assertEquals(Integer.MAX_VALUE, intOps.add(604, Integer.MAX_VALUE - 604));
+        Assert.assertEquals(Integer.MAX_VALUE, intOps.add(0, Integer.MAX_VALUE));
     }
     
     /**
@@ -77,7 +77,7 @@ public class IntegerOperationsTest {
      */
     @Test (expected = IllegalArgumentException.class)
     public void test_add_overflowException() {
-        intOps.add(223, Integer.MAX_VALUE - 222);
+        intOps.add(1, Integer.MAX_VALUE);
     }
 
     /**
@@ -94,7 +94,7 @@ public class IntegerOperationsTest {
         thrown.expectMessage("-54 is not a positive integer.");
         intOps.powerOfTwo(-54);
     }
-    // TODO do we need to reset "thrown"(@before) or create a new Rule?
+
     @Test
     public void test_powerOfTwo_overflowException() {
         thrown.expect(IllegalArgumentException.class);
