@@ -63,10 +63,19 @@ public class IntegerOperationsTest {
     
     /**
      * A test case for the exceptions caused when
-     * one or more input values are negative
+     * the first or both input values are negative
      */
     @Test (expected = IllegalArgumentException.class)
-    public void test_add_negativeValues() {
+    public void test_add_negativeX() {
+        intOps.add(-223, 2);
+    }
+
+    /**
+     * A test case for the exceptions caused when
+     * the second input value is negative
+     */
+    @Test (expected = IllegalArgumentException.class)
+    public void test_add_negativeY() {
         intOps.add(223, -2);
     }
     
