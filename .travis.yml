@@ -4,10 +4,6 @@ jdk:
   - openjdk8
   - oraclejdk8
 
-env:
-  global:
-    - CODECOV_TOKEN=:"616a0284-b195-4240-ba78-5b367bdac247"
-
 branches:
   only:
   - master
@@ -28,4 +24,4 @@ script:
   - mvn clean package cobertura:cobertura
 
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash) -t 616a0284-b195-4240-ba78-5b367bdac247
