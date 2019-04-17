@@ -1,6 +1,7 @@
-# SEiP_Assignments
+# Grade Histogram
 
-This is a project containing university assignments to help students learn about useful tools for coding.
+This is a project containing an assignment to get familiar with the Maven building tool.
+The program receives a file with grades and shows a histogram with the frequency of those grades.
 
 ## Getting Started
 

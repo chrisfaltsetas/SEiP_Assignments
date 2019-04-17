@@ -25,6 +25,7 @@
     <modules>
         <module>gradehistogram</module>
         <module>codeanalyzer</module>
+        <module>unittesting</module>
     </modules>
 
 </project>

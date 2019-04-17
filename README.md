@@ -1,6 +1,7 @@
 # SEiP_Assignments
 
-This is a project containing university assignments to help students learn about useful tools for coding.
+This is a project containing university assignments, for the Software Engineering in Practice
+course, to help students learn about useful tools for coding.
 
 ## Getting Started
 
@@ -31,6 +32,7 @@ mvn package
 
 * [Grade Histogram](https://github.com/chrisfaltsetas/SEiP_Assignments/tree/master/seip2019/gradehistogram)
 * [Code Analyzer](https://github.com/chrisfaltsetas/SEiP_Assignments/tree/master/seip2019/codeanalyzer)
+* [Unit Testing](https://github.com/chrisfaltsetas/SEiP_Assignments/tree/master/seip2019/unittesting)
 
 ## Built With
 

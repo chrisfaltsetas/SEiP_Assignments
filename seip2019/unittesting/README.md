@@ -1,9 +1,7 @@
-# Code Analyzer
+# Unit Testing
 
-This is a project containing an assignment to get familiar with programming patterns,
-including the Strategy, Factory, Utility and Facade patterns.
-The program receives a java source file and save in a csv file three metrics:
-(1) Lines of Code, (2) Number of Classes, (3) Number of Methods.
+This is a project containing an assignment to get familiar with Unit Testing.
+The files contain *Test classes that test possible scenarios of executing methods of a class.
 
 ## Getting Started
 
@@ -15,15 +13,11 @@ Follow the instructions in the projects's [Prerequisites](https://github.com/chr
 
 ### Running the program
 
-After building the project with Maven from the [instructions](https://github.com/chrisfaltsetas/SEiP_Assignments/blob/master/README.md#installing), you will find a new directory called ```target``` with a jar file, located in ```seip2019\codeanalyzer\```.
+While building the project with Maven from the [instructions](https://github.com/chrisfaltsetas/SEiP_Assignments/blob/master/README.md#installing), Maven will run the *Test classes and collect the results of the tests in class specific files in the
+``` seip2019/unittesting/target/surefire-reports/``` folder. The results will also be shown at the end of the test process.
 
-To run the program place your .java source code file in the ```target``` directory and execute the command:
-
-```
-your\file\path\seip2019\codeanalyzer\target>java -jar codeanalyzer-1.0-SNAPSHOT.jar <your_file_name.java> <regex||string>
-```
-
-Note: The second argument sets the type of the analysis. If an invalid argument is given, the program will analyze the code with regex.
+Note: You can also run the ```mvn test``` command to test the classes and skip the jar packaging process, as it is not needed
+in the specific project - there is not main method.
 
 ## Built With
 
