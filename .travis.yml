@@ -4,6 +4,10 @@ jdk:
   - openjdk8
   - oraclejdk8
 
+env:
+  global:
+    - CODECOV_TOKEN=:"616a0284-b195-4240-ba78-5b367bdac247"
+
 branches:
   only:
   - master
