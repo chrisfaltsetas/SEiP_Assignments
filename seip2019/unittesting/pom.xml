@@ -48,7 +48,7 @@
 	                    </goals>
 	                </execution>
 	                <execution>
-	                    <id>jacoco-site</id>
+	                    <id>report</id>
 	                    <phase>package</phase>
 	                    <goals>
 	                        <goal>report</goal>
