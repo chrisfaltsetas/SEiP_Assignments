@@ -1,0 +1,27 @@
+language: java
+
+jdk:
+  - openjdk8
+  - oraclejdk8
+
+branches:
+  only:
+  - master
+
+sudo: required
+
+before_install:
+  - sudo apt update
+
+install:
+  - sudo apt install maven -y
+
+before_script: 
+  - cd project  # enter Maven root directory
+  - ls -la
+
+script: 
+  - mvn clean package jacoco:report cobertura:cobertura
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
