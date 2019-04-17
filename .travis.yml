@@ -21,7 +21,7 @@ install:
   - sudo apt install maven -y
 
 before_script: 
-  - cd project  # enter Maven root directory
+  - cd seip2019  # enter Maven root directory
   - ls -la
 
 script: 
