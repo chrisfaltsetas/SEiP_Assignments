@@ -1,5 +1,8 @@
 # SEiP_Assignments
 
+[![Build Status](https://travis-ci.org/chrisfaltsetas/SEiP_Assignments.svg?branch=master)](https://travis-ci.org/chrisfaltsetas/SEiP_Assignments)
+[![codecov](https://codecov.io/gh/chrisfaltsetas/SEiP_Assignments/branch/master/graph/badge.svg)](https://codecov.io/gh/chrisfaltsetas/SEiP_Assignments)
+
 This is a project containing university assignments, for the Software Engineering in Practice
 course, to help students learn about useful tools for coding.
 

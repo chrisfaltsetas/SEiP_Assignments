@@ -1,0 +1,31 @@
+language: java
+
+jdk:
+  - openjdk8
+  - oraclejdk8
+
+env:
+  global:
+    - CODECOV_TOKEN=:"616a0284-b195-4240-ba78-5b367bdac247"
+
+branches:
+  only:
+  - master
+
+sudo: required
+
+before_install:
+  - sudo apt update
+
+install:
+  - sudo apt install maven -y
+
+before_script: 
+  - cd seip2019  # enter Maven root directory
+  - ls -la
+
+script: 
+  - mvn clean package cobertura:cobertura
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
