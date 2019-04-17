@@ -25,7 +25,7 @@ before_script:
   - ls -la
 
 script: 
-  - mvn clean package jacoco:report cobertura:cobertura
+  - mvn clean package cobertura:cobertura
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
