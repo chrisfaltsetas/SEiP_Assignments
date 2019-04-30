@@ -19,7 +19,7 @@ import operations.IntegerOperations;
  * @author agkortzis, chrisfaltsetas
  */
 @RunWith(Parameterized.class)
-public class IntegerOperationsTest_PowerOfTwo_Parameterized {
+public class IntegerOperations_PowerOfTwo_ParameterizedTest {
     
     // the value is the id of each parameter
     @Parameter (value = 0) 

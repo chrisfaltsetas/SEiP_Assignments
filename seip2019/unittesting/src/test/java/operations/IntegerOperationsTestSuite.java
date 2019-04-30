@@ -10,7 +10,7 @@ import org.junit.runners.Suite;
  * @author agkortzis, chrisfaltsetas
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({IntegerOperationsTest.class, IntegerOperationsTest_PowerOfTwo_Parameterized.class})
+@Suite.SuiteClasses({IntegerOperationsTest.class, IntegerOperations_PowerOfTwo_ParameterizedTest.class})
 public class IntegerOperationsTestSuite {
     /*
      * This class remains empty. Is used only as a holder 
